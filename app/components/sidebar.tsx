@@ -4,13 +4,11 @@ import styles from "./home.module.scss";
 
 import { IconButton } from "./button";
 import SettingsIcon from "../icons/settings.svg";
-import GithubIcon from "../icons/github.svg";
 import ChatGptIcon from "../icons/chatgpt.svg";
 import AddIcon from "../icons/add.svg";
 import DeleteIcon from "../icons/delete.svg";
 import MaskIcon from "../icons/mask.svg";
 import DragIcon from "../icons/drag.svg";
-import DiscoveryIcon from "../icons/discovery.svg";
 
 import Locale from "../locales";
 
@@ -22,13 +20,12 @@ import {
   MIN_SIDEBAR_WIDTH,
   NARROW_SIDEBAR_WIDTH,
   Path,
-  REPO_URL,
 } from "../constant";
 
 import { Link, useNavigate } from "react-router-dom";
 import { isIOS, useMobileScreen } from "../utils";
 import dynamic from "next/dynamic";
-import { showConfirm, Selector } from "./ui-lib";
+import { showConfirm } from "./ui-lib";
 import clsx from "clsx";
 
 const DISCOVERY = [
@@ -255,15 +252,15 @@ export function SideBar(props: { className?: string }) {
             }}
             shadow
           />
-          <IconButton
+          {/* <IconButton
             icon={<DiscoveryIcon />}
             text={shouldNarrow ? undefined : Locale.Discovery.Name}
             className={styles["sidebar-bar-button"]}
             onClick={() => setshowDiscoverySelector(true)}
             shadow
-          />
+          /> */}
         </div>
-        {showDiscoverySelector && (
+        {/* {showDiscoverySelector && (
           <Selector
             items={[
               ...DISCOVERY.map((item) => {
@@ -278,7 +275,7 @@ export function SideBar(props: { className?: string }) {
               navigate(s[0], { state: { fromHome: true } });
             }}
           />
-        )}
+        )} */}
       </SideBarHeader>
       <SideBarBody
         onClick={(e) => {
@@ -311,7 +308,8 @@ export function SideBar(props: { className?: string }) {
                 />
               </Link>
             </div>
-            <div className={styles["sidebar-action"]}>
+            {/* 注释掉github链接 */}
+            {/* <div className={styles["sidebar-action"]}>
               <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
                 <IconButton
                   aria={Locale.Export.MessageFromChatGPT}
@@ -319,7 +317,7 @@ export function SideBar(props: { className?: string }) {
                   shadow
                 />
               </a>
-            </div>
+            </div> */}
           </>
         }
         secondaryAction={

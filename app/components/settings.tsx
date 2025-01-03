@@ -9,7 +9,6 @@ import CopyIcon from "../icons/copy.svg";
 import ClearIcon from "../icons/clear.svg";
 import LoadingIcon from "../icons/three-dots.svg";
 import EditIcon from "../icons/edit.svg";
-import FireIcon from "../icons/fire.svg";
 import EyeIcon from "../icons/eye.svg";
 import DownloadIcon from "../icons/download.svg";
 import UploadIcon from "../icons/upload.svg";
@@ -19,14 +18,12 @@ import ConfirmIcon from "../icons/confirm.svg";
 import ConnectionIcon from "../icons/connection.svg";
 import CloudSuccessIcon from "../icons/cloud-success.svg";
 import CloudFailIcon from "../icons/cloud-fail.svg";
-import { trackSettingsPageGuideToCPaymentClick } from "../utils/auth-settings-events";
 import {
   Input,
   List,
   ListItem,
   Modal,
   PasswordInput,
-  Popover,
   Select,
   showConfirm,
   showToast,
@@ -71,7 +68,6 @@ import {
   UPDATE_URL,
   Stability,
   Iflytek,
-  SAAS_CHAT_URL,
   ChatGLM,
   DeepSeek,
 } from "../constant";
@@ -79,7 +75,6 @@ import { Prompt, SearchService, usePromptStore } from "../store/prompt";
 import { ErrorBoundary } from "./error";
 import { InputRange } from "./input-range";
 import { useNavigate } from "react-router-dom";
-import { Avatar, AvatarPicker } from "./emoji";
 import { getClientConfig } from "../config/client";
 import { useSyncStore } from "../store/sync";
 import { nanoid } from "nanoid";
@@ -701,7 +696,7 @@ export function Settings() {
       }
       subTitle={Locale.Settings.Access.SaasStart.SubTitle}
     >
-      <IconButton
+      {/* <IconButton
         aria={
           Locale.Settings.Access.SaasStart.Title +
           Locale.Settings.Access.SaasStart.ChatNow
@@ -713,7 +708,7 @@ export function Settings() {
           trackSettingsPageGuideToCPaymentClick();
           window.location.href = SAAS_CHAT_URL;
         }}
-      />
+      /> */}
     </ListItem>
   );
 
@@ -1443,7 +1438,8 @@ export function Settings() {
       </div>
       <div className={styles["settings"]}>
         <List>
-          <ListItem title={Locale.Settings.Avatar}>
+          {/* 头像 */}
+          {/* <ListItem title={Locale.Settings.Avatar}>
             <Popover
               onClose={() => setShowEmojiPicker(false)}
               content={
@@ -1467,7 +1463,7 @@ export function Settings() {
                 <Avatar avatar={config.avatar} />
               </div>
             </Popover>
-          </ListItem>
+          </ListItem> */}
 
           <ListItem
             title={Locale.Settings.Update.Version(currentVersion ?? "unknown")}
@@ -1539,6 +1535,7 @@ export function Settings() {
             </Select>
           </ListItem>
 
+          {/* 语言 */}
           <ListItem title={Locale.Settings.Lang.Name}>
             <Select
               aria-label={Locale.Settings.Lang.Name}
@@ -1555,13 +1552,14 @@ export function Settings() {
             </Select>
           </ListItem>
 
+          {/* 字体 */}
           <ListItem
             title={Locale.Settings.FontSize.Title}
             subTitle={Locale.Settings.FontSize.SubTitle}
           >
             <InputRange
               aria={Locale.Settings.FontSize.Title}
-              title={`${config.fontSize ?? 14}px`}
+              title={`${config.fontSize ?? 15}px`}
               value={config.fontSize}
               min="12"
               max="40"
@@ -1592,7 +1590,8 @@ export function Settings() {
             ></input>
           </ListItem>
 
-          <ListItem
+          {/* 自动生成标题 */}
+          {/* <ListItem
             title={Locale.Settings.AutoGenerateTitle.Title}
             subTitle={Locale.Settings.AutoGenerateTitle.SubTitle}
           >
@@ -1607,9 +1606,9 @@ export function Settings() {
                 )
               }
             ></input>
-          </ListItem>
+          </ListItem> */}
 
-          <ListItem
+          {/* <ListItem
             title={Locale.Settings.SendPreviewBubble.Title}
             subTitle={Locale.Settings.SendPreviewBubble.SubTitle}
           >
@@ -1624,9 +1623,9 @@ export function Settings() {
                 )
               }
             ></input>
-          </ListItem>
+          </ListItem> */}
 
-          <ListItem
+          {/* <ListItem
             title={Locale.Mask.Config.Artifacts.Title}
             subTitle={Locale.Mask.Config.Artifacts.SubTitle}
           >
@@ -1641,8 +1640,10 @@ export function Settings() {
                 )
               }
             ></input>
-          </ListItem>
-          <ListItem
+          </ListItem> */}
+
+          {/* 代码折叠 */}
+          {/* <ListItem
             title={Locale.Mask.Config.CodeFold.Title}
             subTitle={Locale.Mask.Config.CodeFold.SubTitle}
           >
@@ -1657,12 +1658,14 @@ export function Settings() {
                 )
               }
             ></input>
-          </ListItem>
+          </ListItem> */}
         </List>
 
-        <SyncItems />
+        {/* 云端同步功能 */}
+        {/* <SyncItems /> */}
 
-        <List>
+        {/* 隐藏面具选项 */}
+        {/* <List>
           <ListItem
             title={Locale.Settings.Mask.Splash.Title}
             subTitle={Locale.Settings.Mask.Splash.SubTitle}
@@ -1674,8 +1677,8 @@ export function Settings() {
               onChange={(e) =>
                 updateConfig(
                   (config) =>
-                    (config.dontShowMaskSplashScreen =
-                      !e.currentTarget.checked),
+                  (config.dontShowMaskSplashScreen =
+                    !e.currentTarget.checked),
                 )
               }
             ></input>
@@ -1697,9 +1700,10 @@ export function Settings() {
               }
             ></input>
           </ListItem>
-        </List>
+        </List> */}
 
-        <List>
+        {/* 提示词自动补全 */}
+        {/* <List>
           <ListItem
             title={Locale.Settings.Prompt.Disable.Title}
             subTitle={Locale.Settings.Prompt.Disable.SubTitle}
@@ -1731,10 +1735,11 @@ export function Settings() {
               onClick={() => setShowPromptModal(true)}
             />
           </ListItem>
-        </List>
+        </List> */}
 
         <List id={SlotID.CustomModel}>
-          {saasStartComponent}
+          {/* github广告 */}
+          {/* {saasStartComponent} */}
           {accessCodeComponent}
 
           {!accessStore.hideUserApiKey && (
@@ -1811,7 +1816,8 @@ export function Settings() {
             </ListItem>
           ) : null}
 
-          <ListItem
+          {/* 自定义模型名称 */}
+          {/* <ListItem
             title={Locale.Settings.Access.CustomModel.Title}
             subTitle={Locale.Settings.Access.CustomModel.SubTitle}
             vertical={true}
@@ -1828,7 +1834,7 @@ export function Settings() {
                 )
               }
             ></input>
-          </ListItem>
+          </ListItem> */}
         </List>
 
         <List>
