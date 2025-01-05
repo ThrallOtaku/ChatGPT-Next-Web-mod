@@ -4,7 +4,6 @@ import {
   REQUEST_TIMEOUT_MS,
 } from "@/app/constant";
 import { RequestMessage } from "@/app/client/api";
-import Locale from "@/app/locales";
 import {
   EventStreamContentType,
   fetchEventSource,
@@ -326,8 +325,11 @@ export function stream(
             extraInfo = prettyObject(resJson);
           } catch {}
 
+          // if (res.status === 401) {
+          //   responseTexts.push(Locale.Error.Unauthorized);
+          // }
           if (res.status === 401) {
-            responseTexts.push(Locale.Error.Unauthorized);
+            responseTexts.push("401");
           }
 
           if (extraInfo) {
