@@ -11,3 +11,6 @@ PORT=8080 pm2 start npm --name "chatgpt-next-web" -- start
 ```
 
 enjoy  chatting
+
+
+Demo  see :  [ChatDemo](http://124.222.116.66:8888/)
